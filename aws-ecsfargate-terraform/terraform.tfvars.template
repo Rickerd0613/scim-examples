@@ -18,5 +18,6 @@ tags = {
 # Uncomment the below line if you are *not* using Route 53
 #using_route53 = false
 
-# Uncomment the below line to enable Google Workspace configuraton for 1Password SCIM bridge
-#using_google_workspace = true
+# Uncomment the below line and specify the approriate email address to
+# enable the Google Workspace configuraton
+#google_workspace_actor = "workspace.admin@example.com"
