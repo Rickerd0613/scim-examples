@@ -341,6 +341,8 @@ module "google_workspace" {
   tags          = local.tags
   iam_role      = aws_iam_role.op_scim_bridge
   enabled       = local.using_google_workspace
+  actor         = var.google_workspace_actor
+  bridgeAddress = "https://${var.domain_name}"
 }
 
 moved {

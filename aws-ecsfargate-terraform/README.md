@@ -32,12 +32,7 @@ cp terraform.tfvars.template terraform.tfvars
 
 ### Copy Google Worskpace credentials
 
-Copy the `workspace-settings.json` template file to this Terraform code directory:
-
-```bash
-cp ../beta/workspace-settings.json ./workspace-settings.json
-```
-Edit this file and add the respective values for each variable (see our [Google Workspace documentation](https://support.1password.com/scim-google-workspace/)).
+For more information, consult our [Google Workspace support article](https://support.1password.com/scim-google-workspace/).
 
 Copy your `workspace-credentials.json` file to this Terraform code directory:
 
@@ -45,12 +40,12 @@ Copy your `workspace-credentials.json` file to this Terraform code directory:
 cp <path>/workspace-credentials.json ./workspace-credentials.json
 ```
 
-### Enable Google Workspace configuration
+### Specify Google Workspace administrator email
 
-Uncommment this line in `terraform.tfvars`:
+Uncommment this line in `terraform.tfvars` and fill in the email address for the Google Workspace administrator associated with the above credentials:
 
 ```terraform
-using_google_workspace = true
+google_workspace_actor = "workspace.admin@example.com"
 ```
 
 </details>
