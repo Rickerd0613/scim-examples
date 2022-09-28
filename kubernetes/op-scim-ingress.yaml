@@ -1,0 +1,31 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: op-scim-ingress
+  annotations:
+    # Use the Issuer resource from `./cert-manager-issuer.yaml` to issue a TLS
+    # certificate
+    cert-manager.io/issuer: letsencrypt-nginx
+spec:
+  ingressClassName: nginx
+  rules:
+  # Change to the DNS record pointing to the Ingress controller - this must
+  #  exactly match the `hosts` in the `tls` section below
+  - host: scim.example.com
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: op-scim-bridge
+            port:
+              # Target the `http` port of the Service
+              name: http
+  tls:
+    - hosts:
+      # Change to the DNS record pointing to the Ingress controller - this must
+      # exactly match the `host` in the `rules` section above
+      - scim.example.com
+      # Arbitrary name for the TLS secret
+      secretName: letsencrypt-nginx-scim

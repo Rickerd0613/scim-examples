@@ -5,19 +5,23 @@ metadata:
   labels:
     app: op-scim-bridge
 spec:
-  type: LoadBalancer
+  # `type` commented out to revert Service type to `ClusterIP``
+  # type: LoadBalancer
   ports:
+    # Ingress terminates TLS, so traffic should be forwarded to the `http`` port
+    # using the alternate configuration below
+    #
     # Use this port in the standard configuration to terminate TLS at the SCIM
     # bridge container using Let's Encrypt
-    - protocol: TCP
-      name: https
-      port: 443
-      targetPort: https
+    # - protocol: TCP
+    #   name: https
+    #   port: 443
+    #   targetPort: https
     # Use this port when terminating TLS in front of the SCIM bridge to listen
     # for unencrypted traffic redirected from a reverse proxy or load balancer
-    # - protocol: TCP
-    #   name: http
-    #   port: 80
-    #   targetPort: http
+    - protocol: TCP
+      name: http
+      port: 80
+      targetPort: http
   selector:
     app: op-scim-bridge
