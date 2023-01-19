@@ -2,17 +2,17 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: op-scim-ingress
-  namespace: scim1 # Adjust namespace name accordingly
+  namespace: scim-1 # Adjust namespace name accordingly
   annotations:
     # Use the Issuer resource from `./cert-manager-issuer.yaml` to issue a TLS
     # certificate
-    cert-manager.io/issuer: letsencrypt-nginx
+    cert-manager.io/cluster-issuer: letsencrypt-nginx
 spec:
   ingressClassName: nginx
   rules:
   # Change to the DNS record pointing to the Ingress controller - this must
   #  exactly match the `hosts` in the `tls` section below
-  - host: scim.example.com
+  - host: scim-1.bluemountainsit.com
     http:
       paths:
       - path: /
@@ -27,7 +27,7 @@ spec:
     - hosts:
       # Change to the DNS record pointing to the Ingress controller - this must
       # exactly match the `host` in the `rules` section above
-      - scim.example.com
+      - scim-1.bluemountainsit.com
       # Arbitrary name for the TLS secret
       secretName: letsencrypt-nginx-scim
 
@@ -37,17 +37,17 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: op-scim-ingress
-  namespace: scim2 # Adjust namespace name accordingly
+  namespace: scim-2 # Adjust namespace name accordingly
   annotations:
     # Use the Issuer resource from `./cert-manager-issuer.yaml` to issue a TLS
     # certificate
-    cert-manager.io/issuer: letsencrypt-nginx
+    cert-manager.io/cluster-issuer: letsencrypt-nginx
 spec:
   ingressClassName: nginx
   rules:
   # Change to the DNS record pointing to the Ingress controller - this must
   #  exactly match the `hosts` in the `tls` section below
-  - host: scim.example.com
+  - host: scim-2.bluemountainsit.com
     http:
       paths:
       - path: /
@@ -62,6 +62,6 @@ spec:
     - hosts:
       # Change to the DNS record pointing to the Ingress controller - this must
       # exactly match the `host` in the `rules` section above
-      - scim.example.com
+      - scim-2.bluemountainsit.com
       # Arbitrary name for the TLS secret
       secretName: letsencrypt-nginx-scim

@@ -1,12 +1,12 @@
 apiVersion: cert-manager.io/v1
-kind: Issuer
+kind: ClusterIssuer
 metadata:
   name: letsencrypt-nginx
 spec:
   # ACME issuer configuration
   acme:
     # Must be changed to a valid email address - used by let's Encrypt
-    email: someone@example.com
+    email: scott.lougheed@agilebits.com
     # URL for Let's Encrypt ACME server
     server: https://acme-v02.api.letsencrypt.org/directory
     privateKeySecretRef:
