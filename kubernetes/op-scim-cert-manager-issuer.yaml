@@ -6,7 +6,7 @@ spec:
   # ACME issuer configuration
   acme:
     # Must be changed to a valid email address - used by let's Encrypt
-    email: scott.lougheed@agilebits.com
+    email: email@example.com
     # URL for Let's Encrypt ACME server
     server: https://acme-v02.api.letsencrypt.org/directory
     privateKeySecretRef:

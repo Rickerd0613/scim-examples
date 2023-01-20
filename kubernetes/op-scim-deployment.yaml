@@ -1,8 +1,10 @@
+# Adjust metadata.namespace values to taste for both resources defined in this file
+
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: op-scim-bridge
-  namespace: scim-1
+  namespace: scim-1 # ADJUST to taste
 spec:
   selector:
     matchLabels:
@@ -56,7 +58,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: op-scim-bridge
-  namespace: scim-2
+  namespace: scim-2 # ADJUST to taste
 spec:
   selector:
     matchLabels:

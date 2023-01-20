@@ -1,3 +1,5 @@
+# Adjust metadata.namespace values to taste
+# Adjust spec.rules.host and spec.tls.hosts for both Ingress resources in this file. 
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
@@ -12,7 +14,7 @@ spec:
   rules:
   # Change to the DNS record pointing to the Ingress controller - this must
   #  exactly match the `hosts` in the `tls` section below
-  - host: scim-1.bluemountainsit.com
+  - host: scim-1.example.com
     http:
       paths:
       - path: /
@@ -27,7 +29,7 @@ spec:
     - hosts:
       # Change to the DNS record pointing to the Ingress controller - this must
       # exactly match the `host` in the `rules` section above
-      - scim-1.bluemountainsit.com
+      - scim-1.example.com
       # Arbitrary name for the TLS secret
       secretName: letsencrypt-nginx-scim
 
@@ -47,7 +49,7 @@ spec:
   rules:
   # Change to the DNS record pointing to the Ingress controller - this must
   #  exactly match the `hosts` in the `tls` section below
-  - host: scim-2.bluemountainsit.com
+  - host: scim-2.example.com
     http:
       paths:
       - path: /
@@ -62,6 +64,6 @@ spec:
     - hosts:
       # Change to the DNS record pointing to the Ingress controller - this must
       # exactly match the `host` in the `rules` section above
-      - scim-2.bluemountainsit.com
+      - scim-2.example.com
       # Arbitrary name for the TLS secret
       secretName: letsencrypt-nginx-scim

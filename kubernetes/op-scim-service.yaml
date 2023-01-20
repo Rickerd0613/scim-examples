@@ -1,8 +1,9 @@
+# Adjust metadata.namespace values to taste for both resources defined in this file. 
 apiVersion: v1
 kind: Service
 metadata:
   name: op-scim-bridge
-  namespace: scim-1
+  namespace: scim-1 # ADJUST to taste
   labels:
     app: op-scim-bridge
 spec:
@@ -29,7 +30,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: op-scim-bridge
-  namespace: scim-2
+  namespace: scim-2 # ADJUST to taste
   labels:
     app: op-scim-bridge
 spec:

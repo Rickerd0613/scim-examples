@@ -1,8 +1,10 @@
+# Adjust metadata.namespace values to taste for both resources defined in this file. 
+
 apiVersion: v1
 kind: ConfigMap
 metadata:
   name: op-scim-configmap
-  namespace: scim-1
+  namespace: scim-1 # ADJUST to taste
 data:
   # Set this to the FQDN you've selected for your SCIM Bridge deployment
   OP_LETSENCRYPT_DOMAIN: ""
@@ -26,7 +28,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: op-scim-configmap
-  namespace: scim-2
+  namespace: scim-2 # ADJUST to taste
 data:
   # Set this to the FQDN you've selected for your SCIM Bridge deployment
   OP_LETSENCRYPT_DOMAIN: ""
